@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Quiz App</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4ff;
+            margin: 0;
+            padding: 30px 15px;
+            color: #222;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px #00000015;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #3949ab;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            background: #3949ab;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #283593;
+        }
+
+        .main-button {
+            display: block;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .option {
+            display: block;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #eef0ff;
+        }
+
+        .progress {
+            height: 8px;
+            background: #ddd;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        #progressBar {
+            height: 100%;
+            width: 0%;
+            background: #3949ab;
+            transition: width 0.3s;
+        }
+
+        #timer {
+            text-align: right;
+            color: #e53935;
+            font-weight: bold;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #feedback {
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🧠 Python Quiz App</h1>
+        <p>Test your Python knowledge!</p>
+
+        <section id="welcomeScreen">
+            <p>Answer the questions and check your performance.</p>
+
+            <input
+                type="text"
+                id="playerName"
+                placeholder="Enter your name"
+                maxlength="40"
+            >
+
+            <button class="main-button" onclick="startQuiz()">
+                Start Quiz
+            </button>
+        </section>
+
+        <section id="quizScreen" class="hidden">
+            <div id="timer">Time: 30s</div>
+
+            <div class="progress">
+                <div id="progressBar"></div>
+            </div>
+
+            <p id="questionNumber"></p>
+            <h2 id="question"></h2>
+
+            <div id="options"></div>
+
+            <button class="main-button" onclick="submitAnswer()">
+                Submit Answer
+            </button>
+
+            <p id="feedback"></p>
+        </section>
+
+        <section id="resultScreen" class="hidden">
+            <h2>🏆 Quiz Completed!</h2>
+            <p id="result"></p>
+
+            <button class="main-button" onclick="startQuiz()">
+                Play Again
+            </button>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
